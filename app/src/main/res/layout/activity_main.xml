@@ -46,7 +46,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:hint="@string/hintCodigo"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    />
             </LinearLayout>
 
             <!-- Segunda columna -->
@@ -60,6 +62,7 @@
                     android:id="@+id/buttonBuscar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="Buscar"
                     android:text="@string/buscar"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -126,7 +129,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:hint="@string/hintPrecio"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+
+                    android:inputType="numberDecimal"
+                    />
             </LinearLayout>
 
             <!-- Segunda columna -->

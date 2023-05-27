@@ -3,8 +3,8 @@ package com.example.sem09_ejerc1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -38,22 +38,72 @@ public class MainActivity extends AppCompatActivity {
         String precio = et_precio.getText().toString();
 
         if (!codigo.isEmpty() && !nombre.isEmpty() && !precio.isEmpty()){
-            ContentValues query = new ContentValues();
-            query.put("codigo",codigo);
-            query.put("nombre",nombre);
-            query.put("precio",precio);
 
-            bd.insert("producto",null,query);
-            bd.close();
-            et_codigo.setText("");
-            et_nombre.setText("");
-            et_precio.setText("");
+            if (validarCodigo(codigo) && validarNombre(nombre)){
+                ContentValues query = new ContentValues();
+                query.put("codigo",codigo);
+                query.put("nombre",nombre);
+                query.put("precio",precio);
 
-            Toast.makeText(this, "Se registró un producto", Toast.LENGTH_SHORT).show();
+                bd.insert("producto",null,query);
+                bd.close();
+                et_codigo.setText("");
+                et_nombre.setText("");
+                et_precio.setText("");
+
+                Toast.makeText(this, "Se registró un producto", Toast.LENGTH_SHORT).show(); 
+            } else {
+                Toast.makeText(this, "Caracteres no permitidos", Toast.LENGTH_SHORT).show();
+            }
+            
 
         } else {
             Toast.makeText(this, "Ingrese los datos solicitados", Toast.LENGTH_SHORT).show();
         }
 
     }
+
+    public void Buscar(View v){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"productos",null,1);
+
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        String codigo = et_codigo.getText().toString();
+
+        if (!codigo.isEmpty()){
+            Cursor fila = bd.rawQuery("SELECT nombre, precio FROM producto WHERE codigo="+codigo , null);
+
+            if (fila.moveToFirst()){
+                et_nombre.setText(fila.getString(0));
+                et_precio.setText(fila.getString(1));
+                et_codigo.setText(codigo);
+                bd.close();
+            } else {
+                Toast.makeText(this, "No existe el producto", Toast.LENGTH_SHORT).show();
+                bd.close();
+            }
+
+        } else {
+            Toast.makeText(this, "Ingrese el codigo", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    /**
+     * Metodos para validar
+     *
+     * regex -> Expresión Regular
+     */
+    public boolean validarCodigo(String codigo) {
+        String regex = "^[0-9]+$";
+        return codigo.matches(regex);
+    }
+
+    private boolean validarNombre(String nombre) {
+        String regex = "^[A-Za-z0-9_\\-\\s]+$";
+        return nombre.matches(regex);
+    }
+
+
+
 }
