@@ -1,18 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="32dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Primera fila -->
+        <TableRow
+            android:layout_marginBottom="16dp">
+
+            <!-- Primera columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Código del producto" />
+
+                <EditText
+                    android:id="@+id/editTextCodigo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese el código"
+                    android:layout_marginLeft="16dp"
+                    />
+            </LinearLayout>
+
+            <!-- Segunda columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal">
+
+                <Button
+                    android:id="@+id/buttonBuscar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buscar"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </TableRow>
+
+        <!-- Segunda fila -->
+        <TableRow
+            android:layout_marginBottom="16dp"
+            >
+            <!-- Primera columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre del producto" />
+
+                <EditText
+                    android:id="@+id/editTextNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese el nombre"
+                    android:layout_marginLeft="16dp"
+                    />
+            </LinearLayout>
+
+            <!-- Segunda columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical">
+
+                <!-- Aquí puedes agregar los elementos de la segunda celda de la segunda fila -->
+                <Button
+                    android:id="@+id/buttonModificar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Modificar"
+                    android:textSize="12sp"
+                    />
+
+            </LinearLayout>
+        </TableRow>
+
+        <!-- Tercera fila -->
+        <TableRow
+            android:layout_marginBottom="16dp"
+            >
+            <!-- Primera columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio del producto" />
+
+                <EditText
+                    android:id="@+id/editTextPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese el precio"
+                    android:layout_marginLeft="16dp"
+                    />
+            </LinearLayout>
+
+            <!-- Segunda columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- Aquí puedes agregar los elementos de la segunda celda de la tercera fila -->
+
+                <Button
+                    android:id="@+id/buttonEliminar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eliminar"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+        </TableRow>
+
+        <!-- Cuarta fila -->
+        <TableRow>
+            <!-- Primera columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonRegistrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registrar"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+
+            <!-- Segunda columna -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- Aquí puedes agregar los elementos de la segunda celda de la tercera fila -->
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
