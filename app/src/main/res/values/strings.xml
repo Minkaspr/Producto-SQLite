@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Sem09-Ejerc1</string>
+    <string name="app_name">CRUD-Productos</string>
+
+    <!-- Title -->
+    <string name="titulo">Producto</string>
+
+    <!-- Inputs -->
+    <string name="codigo">Código del producto</string>
+    <string name="hintCodigo">Ingrese el código</string>
+    <string name="nombre">Nombre del producto</string>
+    <string name="hintNombre">Ingrese el nombre</string>
+    <string name="precio">Precio del producto</string>
+    <string name="hintPrecio">Ingrese el precio</string>
+
+    <!-- Buttons -->
+    <string name="registrar">REGISTRAR</string>
+    <string name="buscar">BUSCAR</string>
+    <string name="modificar">MODIFICAR</string>
+    <string name="eliminar">ELIMINAR</string>
 </resources>
